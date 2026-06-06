@@ -74,6 +74,26 @@
       transform: scale(1.02);
     }
 
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-img {
+      transform: scale(1.02);
+    }
+
+    .logo-footer {
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
+    .logo-footer:hover {
+      opacity: 1;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -111,16 +131,18 @@
 
     .btn-verify {
       background: var(--red);
-      color: var(--white);
-      padding: 9px 20px;
+      color: var(--white) !important;
+      padding: 10px 22px;
       font-size: 13px;
       font-weight: 600;
       border: none;
+      border-radius: 4px;
       cursor: pointer;
       letter-spacing: 0.3px;
       transition: var(--transition);
       text-decoration: none;
       display: inline-block;
+      white-space: nowrap;
     }
 
     .btn-verify:hover {
@@ -144,15 +166,17 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 68px;
-      left: 0;
-      right: 0;
+      top: 74px;
+      right: 5%;
+      width: 220px;
       background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 5%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      padding: 12px;
       flex-direction: column;
-      gap: 16px;
-      z-index: 999;
+      gap: 4px;
+      z-index: 1001;
     }
 
     .mobile-menu.open {
@@ -162,10 +186,17 @@
     .mobile-menu a {
       text-decoration: none;
       color: var(--dark);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 8px 12px;
+      border-bottom: none;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .mobile-menu a:hover {
+      background: var(--light-bg);
+      color: var(--red);
     }
 
     /* ── BUTTONS ── */
@@ -176,6 +207,7 @@
       font-size: 14px;
       font-weight: 600;
       border: none;
+      border-radius: 4px;
       cursor: pointer;
       letter-spacing: 0.4px;
       transition: var(--transition);
@@ -197,6 +229,7 @@
       font-size: 14px;
       font-weight: 600;
       border: 2px solid var(--dark);
+      border-radius: 4px;
       cursor: pointer;
       letter-spacing: 0.4px;
       transition: var(--transition);
@@ -364,10 +397,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow: visible;
+      border-radius: 8px;
     }
 
-    .hero-visual::before {
+    .hero-bg-decor {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: inherit;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-bg-decor::before {
       content: '';
       position: absolute;
       top: -60px;
@@ -379,7 +422,7 @@
       border-radius: 50%;
     }
 
-    .hero-visual::after {
+    .hero-bg-decor::after {
       content: '';
       position: absolute;
       bottom: -40px;
@@ -396,6 +439,7 @@
       z-index: 2;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
       padding: 32px;
       color: var(--white);
       width: 300px;
@@ -418,7 +462,7 @@
 
     .hero-card p {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.7;
       margin-bottom: 20px;
     }
@@ -431,6 +475,7 @@
       font-weight: 600;
       padding: 4px 12px;
       letter-spacing: 1px;
+      border-radius: 4px;
     }
 
     .hero-badges {
@@ -448,6 +493,7 @@
       padding: 12px 16px;
       border-left: 3px solid var(--red);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
     }
 
     .floating-badge.top {
@@ -512,40 +558,29 @@
     /* ── DOMAINS ── */
     #internships {
       background: var(--white);
+      padding-top: 40px;
+      scroll-margin-top: 68px;
     }
 
     .domains-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
     .domain-card {
       background: var(--white);
+      border: 1px solid var(--border);
       padding: 32px 28px;
       transition: var(--transition);
       cursor: pointer;
       position: relative;
       overflow: hidden;
-    }
-
-    .domain-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--red);
-      transform: scaleY(0);
-      transition: var(--transition);
-      transform-origin: bottom;
-    }
-
-    .domain-card:hover::before {
-      transform: scaleY(1);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 16px;
+      align-items: center;
+      border-radius: 6px;
     }
 
     .domain-card:hover {
@@ -553,26 +588,39 @@
     }
 
     .domain-icon {
+      grid-column: 1;
+      grid-row: 1;
       font-size: 28px;
       color: var(--red);
-      margin-bottom: 16px;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
     }
 
     .domain-card h3 {
+      grid-column: 2;
+      grid-row: 1;
       font-size: 16px;
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 8px;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
     }
 
     .domain-card p {
+      grid-column: 1 / span 2;
+      grid-row: 2;
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1.6;
+      margin-top: 16px;
       margin-bottom: 16px;
     }
 
     .domain-meta {
+      grid-column: 1 / span 2;
+      grid-row: 3;
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
@@ -589,6 +637,8 @@
     }
 
     .domain-apply {
+      grid-column: 1 / span 2;
+      grid-row: 4;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -758,23 +808,11 @@
       transition: var(--transition);
       position: relative;
       overflow: hidden;
-    }
-
-    .service-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--red);
-      transform: scaleX(0);
-      transition: var(--transition);
-      transform-origin: left;
-    }
-
-    .service-card:hover::after {
-      transform: scaleX(1);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 16px;
+      align-items: center;
+      border-radius: 6px;
     }
 
     .service-card:hover {
@@ -782,13 +820,15 @@
     }
 
     .service-icon {
+      grid-column: 1;
+      grid-row: 1;
       width: 52px;
       height: 52px;
       background: #FFF0F0;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 0;
     }
 
     .service-icon i {
@@ -797,20 +837,29 @@
     }
 
     .service-card h3 {
+      grid-column: 2;
+      grid-row: 1;
       font-size: 17px;
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 10px;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
     }
 
     .service-card p {
+      grid-column: 1 / span 2;
+      grid-row: 2;
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-top: 16px;
+      margin-bottom: 16px;
     }
 
     .service-link {
+      grid-column: 1 / span 2;
+      grid-row: 3;
       font-size: 13px;
       font-weight: 600;
       color: var(--red);
@@ -841,6 +890,7 @@
     .tech-tag {
       background: var(--white);
       border: 1px solid var(--border);
+      border-radius: 4px;
       padding: 10px 20px;
       font-size: 13px;
       font-weight: 500;
@@ -850,8 +900,8 @@
     }
 
     .tech-tag:hover {
-      border-color: var(--red);
-      color: var(--red);
+      border-color: var(--dark);
+      background: var(--light-bg);
     }
 
     /* ── REVIEWS ── */
@@ -867,6 +917,7 @@
 
     .review-card {
       border: 1px solid var(--border);
+      border-radius: 6px;
       padding: 28px;
       transition: var(--transition);
     }
@@ -932,12 +983,12 @@
     .job-card {
       background: var(--white);
       border: 1px solid var(--border);
+      border-radius: 6px;
       padding: 28px;
       transition: var(--transition);
     }
 
     .job-card:hover {
-      border-color: var(--red);
       box-shadow: var(--card-shadow);
     }
 
@@ -950,6 +1001,7 @@
       padding: 4px 10px;
       letter-spacing: 1px;
       margin-bottom: 14px;
+      border-radius: 4px;
     }
 
     .job-card h3 {
@@ -979,6 +1031,7 @@
       font-size: 11px;
       padding: 3px 10px;
       color: var(--dark);
+      border-radius: 4px;
     }
 
     .job-apply {
@@ -988,6 +1041,7 @@
       font-size: 13px;
       font-weight: 600;
       border: none;
+      border-radius: 4px;
       cursor: pointer;
       transition: var(--transition);
       font-family: 'Poppins', sans-serif;
@@ -1065,6 +1119,7 @@
       width: 36px;
       height: 36px;
       border: 1px solid var(--border);
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1107,6 +1162,7 @@
     .form-group input,
     .form-group textarea {
       border: 1px solid var(--border);
+      border-radius: 4px;
       padding: 12px 16px;
       font-size: 14px;
       font-family: 'Poppins', sans-serif;
@@ -1143,7 +1199,7 @@
     }
 
     .verify-inner .section-sub {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.75);
       margin: 0 auto 40px;
     }
 
@@ -1162,6 +1218,11 @@
       font-size: 14px;
       font-family: 'Poppins', sans-serif;
       outline: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .verify-input-row .btn-primary {
+      border-radius: 0 4px 4px 0;
     }
 
     .verify-input-row input::placeholder {
@@ -1175,6 +1236,7 @@
     .verify-result {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
       padding: 24px;
       text-align: left;
       display: none;
@@ -1199,7 +1261,7 @@
     }
 
     .verify-row span:first-child {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.65);
     }
 
     .verify-row span:last-child {
@@ -1245,6 +1307,7 @@
       font-size: 14px;
       font-weight: 700;
       border: none;
+      border-radius: 4px;
       cursor: pointer;
       font-family: 'Poppins', sans-serif;
       transition: var(--transition);
@@ -1361,6 +1424,7 @@
       max-width: 480px;
       width: 90%;
       position: relative;
+      border-radius: 8px;
       transform: translateY(20px);
       transition: var(--transition);
     }
@@ -1402,6 +1466,7 @@
     .popup-form input,
     .popup-form select {
       border: 1px solid var(--border);
+      border-radius: 4px;
       padding: 12px 16px;
       font-size: 14px;
       font-family: 'Poppins', sans-serif;
@@ -1426,6 +1491,7 @@
       z-index: 8000;
       max-width: 320px;
       border-left: 4px solid var(--red);
+      border-radius: 6px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       transform: translateX(-120%);
       transition: transform 0.4s ease;
@@ -1455,6 +1521,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+
+      #home {
+        padding: 20px 5% 40px;
+        min-height: auto;
+      }
 
       .hero-grid,
       .why-grid,
@@ -1648,6 +1719,34 @@
         grid-template-columns: 1fr;
       }
 
+      .domain-card {
+        padding: 20px 16px;
+        column-gap: 12px;
+      }
+
+      .domain-card p {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      .domain-apply {
+        margin-top: 12px;
+      }
+
+      .services-grid {
+        gap: 16px;
+      }
+
+      .service-card {
+        padding: 20px 16px;
+        column-gap: 12px;
+      }
+
+      .service-card p {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
       .careers-grid {
         grid-template-columns: 1fr;
       }
@@ -1660,29 +1759,7 @@
   <!-- NAV -->
   <nav>
     <a href="#home" class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 75" class="logo-svg">
-        <defs>
-          <clipPath id="capsule-clip-nav">
-            <rect x="10" y="5" width="180" height="42" rx="8" />
-          </clipPath>
-        </defs>
-        <rect x="10" y="5" width="180" height="42" rx="8" fill="none" stroke="var(--logo-border, #E2E8F0)"
-          stroke-width="1.5" />
-        <g clip-path="url(#capsule-clip-nav)">
-          <polygon points="10,5 108,5 92,47 10,47" fill="#FF2C2C" />
-          <polygon points="108,5 190,5 190,47 92,47" fill="var(--logo-mint-bg, #353839)" />
-        </g>
-        <text x="34" y="32.5" text-anchor="middle" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="800"
-          font-size="18px" letter-spacing="0.5">C</text>
-        <rect x="44.5" y="18" width="16" height="16" rx="4" fill="none" stroke="#FFFFFF" stroke-width="3" />
-        <path d="M0,8 C4,8 8,4 8,0 C4,0 0,4 0,8 Z" fill="#10B981" transform="translate(48.5, 22)" />
-        <text x="73.5" y="32.5" text-anchor="middle" fill="#FFFFFF" font-family="'Poppins', sans-serif"
-          font-weight="800" font-size="18px" letter-spacing="0.5">D</text>
-        <text x="144" y="32.5" text-anchor="middle" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="700"
-          font-size="18px" letter-spacing="1.5">MINT</text>
-        <text x="100" y="66" text-anchor="middle" fill="var(--logo-text, #353839)" font-family="'Poppins', sans-serif"
-          font-weight="600" font-size="9px" letter-spacing="4.5">TECHNOLOGIES</text>
-      </svg>
+      <img src="logo.png" alt="Codmint Technologies" class="logo-img">
     </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
@@ -1693,7 +1770,7 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="#verify" class="btn-verify">Verify Certificate</a></li>
     </ul>
-    <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger" onclick="toggleMenu(event)">
       <span></span><span></span><span></span>
     </div>
   </nav>
@@ -1711,7 +1788,7 @@
   <section id="home">
     <div class="hero-grid">
       <div class="hero-content reveal">
-        <div class="hero-badge">Now Accepting Applications – Batch 2025</div>
+        <div class="hero-badge">Now Accepting Applications – June Batch 2026 (Only 25 Seats Left)</div>
         <h1 class="hero-title">Where<br><span>Developers</span><br>Begin</h1>
         <p class="hero-tagline">Codmint Technologies</p>
         <p class="hero-desc">Launch your tech career with real-world internships, expert mentorship, and industry-ready
@@ -1727,6 +1804,7 @@
         </div>
       </div>
       <div class="hero-visual reveal">
+        <div class="hero-bg-decor"></div>
         <div class="hero-card">
           <div class="hero-card-tag">Featured Program</div>
           <h3>Full Stack Development Internship</h3>
@@ -2133,8 +2211,10 @@
           <div><strong>Location</strong><span>Tamil Nadu, India</span></div>
         </div>
         <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/codmint/" class="social-link" target="_blank"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/codmint_tech?igsh=aGpkbm8zdWR5ZXh1" class="social-link" target="_blank"><i
+              class="fab fa-instagram"></i></a>
           <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
         </div>
@@ -2173,11 +2253,25 @@
         <input type="text" id="certInput" placeholder="Enter Certificate ID (e.g. CM-2025-0001)">
         <button class="btn-primary" onclick="verifyCert()">Verify →</button>
       </div>
+
+      <!-- LOADING SCREEN -->
+      <div id="verifyLoading"
+        style="display: none; padding: 32px 24px; text-align: center; color: var(--white); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); margin-top: 20px;">
+        <i class="fas fa-spinner fa-spin" style="font-size: 28px; color: var(--red); margin-bottom: 16px;"></i>
+        <p id="verifyLoadingText" style="font-size: 14px; font-weight: 500; letter-spacing: 0.5px;">Connecting to
+          blockchain network...</p>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 8px;">Please wait while we check
+          certificate signature records. This takes about 10-15 seconds.</p>
+      </div>
+
       <div class="verify-result" id="verifyResult">
         <h4 id="verifyStatus">✓ Certificate Verified</h4>
         <div class="verify-row"><span>Candidate Name</span><span id="vName">—</span></div>
-        <div class="verify-row"><span>Internship Role</span><span id="vRole">—</span></div>
-        <div class="verify-row"><span>Completion Date</span><span id="vDate">—</span></div>
+        <div class="verify-row"><span>Certificate ID</span><span id="vId">—</span></div>
+        <div class="verify-row"><span>Domain</span><span id="vDomain">—</span></div>
+        <div class="verify-row"><span>Duration</span><span id="vDuration">—</span></div>
+        <div class="verify-row"><span>Start & End Date</span><span id="vDates">—</span></div>
+        <div class="verify-row"><span>Issue Date</span><span id="vIssueDate">—</span></div>
         <div class="verify-row"><span>Status</span><span id="vStatus">—</span></div>
       </div>
     </div>
@@ -2195,30 +2289,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#home" class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 75" class="logo-svg">
-            <defs>
-              <clipPath id="capsule-clip-footer">
-                <rect x="10" y="5" width="180" height="42" rx="8" />
-              </clipPath>
-            </defs>
-            <rect x="10" y="5" width="180" height="42" rx="8" fill="none"
-              stroke="var(--logo-border, rgba(255,255,255,0.15))" stroke-width="1.5" />
-            <g clip-path="url(#capsule-clip-footer)">
-              <polygon points="10,5 108,5 92,47 10,47" fill="#FF2C2C" />
-              <polygon points="108,5 190,5 190,47 92,47" fill="var(--logo-mint-bg, #1E2022)" />
-            </g>
-            <text x="34" y="32.5" text-anchor="middle" fill="#FFFFFF" font-family="'Poppins', sans-serif"
-              font-weight="800" font-size="18px" letter-spacing="0.5">C</text>
-            <rect x="44.5" y="18" width="16" height="16" rx="4" fill="none" stroke="#FFFFFF" stroke-width="3" />
-            <path d="M0,8 C4,8 8,4 8,0 C4,0 0,4 0,8 Z" fill="#10B981" transform="translate(48.5, 22)" />
-            <text x="73.5" y="32.5" text-anchor="middle" fill="#FFFFFF" font-family="'Poppins', sans-serif"
-              font-weight="800" font-size="18px" letter-spacing="0.5">D</text>
-            <text x="144" y="32.5" text-anchor="middle" fill="#FFFFFF" font-family="'Poppins', sans-serif"
-              font-weight="700" font-size="18px" letter-spacing="1.5">MINT</text>
-            <text x="100" y="66" text-anchor="middle" fill="var(--logo-text, rgba(255,255,255,0.6))"
-              font-family="'Poppins', sans-serif" font-weight="600" font-size="9px"
-              letter-spacing="4.5">TECHNOLOGIES</text>
-          </svg>
+          <img src="logo.png" alt="Codmint Technologies" class="logo-img logo-footer">
         </a>
         <p style="margin-top: 16px;">Building the next generation of developers through real-world internships, expert
           mentorship, and industry-ready projects.</p>
@@ -2251,16 +2322,16 @@
           <li><a href="mailto:hello@codminttechnologies.com">hello@codminttechnologies.com</a></li>
           <li><a href="tel:+919876543210">+91 98765 43210</a></li>
           <li><a href="#">Tamil Nadu, India</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/codmint/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/codmint_tech?igsh=aGpkbm8zdWR5ZXh1" target="_blank">Instagram</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Codmint Technologies. All rights reserved.</p>
       <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
+        <a href="legal.html?tab=privacy" target="_blank">Privacy Policy</a>
+        <a href="legal.html?tab=terms" target="_blank">Terms & Conditions</a>
       </div>
     </div>
   </footer>
@@ -2294,13 +2365,25 @@
   <!-- URGENCY TOAST -->
   <div class="toast" id="toast">
     <strong>🔥 Limited Seats Remaining</strong>
-    Applications for the June batch are filling up. Apply today to secure your spot.
+    Seats are filling, only 25 seats left. Apply today to secure your spot.
   </div>
 
   <script>
-    function toggleMenu() {
+    function toggleMenu(e) {
+      if (e) e.stopPropagation();
       document.getElementById('mobileMenu').classList.toggle('open');
     }
+
+    // Close mobile menu on clicking outside of it
+    document.addEventListener('click', function (event) {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (mobileMenu.classList.contains('open') &&
+        !mobileMenu.contains(event.target) &&
+        !hamburger.contains(event.target)) {
+        mobileMenu.classList.remove('open');
+      }
+    });
 
     function openApply(role) {
       document.getElementById('applyRole').textContent = 'Applying for: ' + role;
@@ -2331,33 +2414,42 @@
 
     // Mock certificate DB
     const certs = {
-      'CM-2025-0001': { name: 'Arjun Kumar', role: 'Full Stack Development', date: 'April 2025', valid: true },
-      'CM-2025-0042': { name: 'Priya Mehta', role: 'AI Development', date: 'March 2025', valid: true },
-      'CM-2024-0099': { name: 'Rahul Sharma', role: 'Web Development', date: 'December 2024', valid: true },
+      'CM-2025-0001': {
+        name: 'Arjun Kumar',
+        id: 'CM-2025-0001',
+        domain: 'Full Stack Development',
+        duration: '4 Weeks',
+        dates: '1 May to 30 May 2026',
+        issueDate: '31 May 2026',
+        status: 'Completed'
+      },
+      'CM-2025-0042': {
+        name: 'Priya Mehta',
+        id: 'CM-2025-0042',
+        domain: 'AI Development',
+        duration: '6 Weeks',
+        dates: '1 May to 12 June 2026',
+        issueDate: '13 June 2026',
+        status: 'Completed'
+      },
+      'CM-2024-0099': {
+        name: 'Rahul Sharma',
+        id: 'CM-2024-0099',
+        domain: 'Web Development',
+        duration: '4 Weeks',
+        dates: '1 May to 30 May 2026',
+        issueDate: '31 May 2026',
+        status: 'Completed'
+      }
     };
 
     function verifyCert() {
       const id = document.getElementById('certInput').value.trim().toUpperCase();
-      const result = document.getElementById('verifyResult');
-      const cert = certs[id];
-      result.classList.add('show');
-      if (cert) {
-        document.getElementById('verifyStatus').textContent = '✓ Certificate Verified';
-        document.getElementById('verifyStatus').style.color = '#22C55E';
-        document.getElementById('vName').textContent = cert.name;
-        document.getElementById('vRole').textContent = cert.role;
-        document.getElementById('vDate').textContent = cert.date;
-        document.getElementById('vStatus').textContent = 'Valid';
-        document.getElementById('vStatus').className = 'status-valid';
-      } else {
-        document.getElementById('verifyStatus').textContent = '✕ Certificate Not Found';
-        document.getElementById('verifyStatus').style.color = '#FF2C2C';
-        document.getElementById('vName').textContent = '—';
-        document.getElementById('vRole').textContent = '—';
-        document.getElementById('vDate').textContent = '—';
-        document.getElementById('vStatus').textContent = 'Invalid / Not Found';
-        document.getElementById('vStatus').className = 'status-invalid';
+      if (!id) {
+        alert("Please enter a Certificate ID.");
+        return;
       }
+      window.open('verify.html?id=' + encodeURIComponent(id), '_blank');
     }
 
     // Scroll reveal
