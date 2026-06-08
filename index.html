@@ -24,7 +24,7 @@
       --light-bg: #F8F8F8;
       --border: #E8E8E8;
       --text-muted: #666;
-      --text-light: #999;
+      --text-light: #757575;
       --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
       --transition: all 0.3s ease;
     }
@@ -144,8 +144,8 @@
     .btn-verify {
       background: var(--red);
       color: var(--white) !important;
-      padding: 10px 22px;
-      font-size: 13px;
+      padding: 11px 24px;
+      font-size: 14px;
       font-weight: 600;
       border: none;
       border-radius: 4px;
@@ -300,7 +300,7 @@
     /* ── HERO ── */
     #home {
       padding: 100px 5% 80px;
-      min-height: 90vh;
+      min-height: clamp(500px, 85vh, 800px);
       display: flex;
       align-items: center;
       background: var(--white);
@@ -459,7 +459,7 @@
 
     .hero-card-tag {
       font-size: 11px;
-      color: var(--red);
+      color: #FF8F8F;
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -492,7 +492,11 @@
 
     .hero-badges {
       position: absolute;
-      inset: 0;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
       pointer-events: none;
       z-index: 3;
     }
@@ -701,7 +705,7 @@
 
     .why-visual-inner p {
       font-size: 15px;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.75);
       margin-top: 8px;
     }
 
@@ -1349,7 +1353,7 @@
 
     .footer-brand p {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.8;
       max-width: 260px;
     }
@@ -1372,7 +1376,7 @@
     .footer-col ul a {
       text-decoration: none;
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.65);
       transition: var(--transition);
     }
 
@@ -1392,7 +1396,7 @@
 
     .footer-bottom p {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .footer-links {
@@ -1402,7 +1406,7 @@
 
     .footer-links a {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.6);
       text-decoration: none;
       transition: var(--transition);
     }
@@ -1659,10 +1663,13 @@
 
       .verify-input-row input {
         width: 100%;
+        border-radius: 4px;
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
       }
 
       .verify-input-row button {
         width: 100%;
+        border-radius: 4px;
       }
 
       /* ── HERO RESPONSIVENESS FIX FOR NARROW VIEWS ── */
@@ -1689,6 +1696,8 @@
         max-width: 340px;
         justify-content: space-between;
         pointer-events: auto;
+        transform: none;
+        left: auto;
       }
 
       .floating-badge {
@@ -2258,7 +2267,7 @@
   <!-- VERIFY CERTIFICATE -->
   <section id="verify">
     <div class="verify-inner">
-      <div class="section-label" style="color: rgba(255,44,44,0.8);">Certificate Verification</div>
+      <div class="section-label" style="color: #FF8F8F;">Certificate Verification</div>
       <h2 class="section-title">Verify Your Certificate</h2>
       <p class="section-sub">Enter your certificate ID to instantly verify authenticity and view internship details.</p>
       <div class="verify-input-row">
