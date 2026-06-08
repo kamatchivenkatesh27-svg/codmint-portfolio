@@ -397,7 +397,7 @@
       color: var(--dark);
     }
 
-    .hero-stat span {
+    .hero-stat > span {
       font-size: 13px;
       color: var(--text-muted);
     }
@@ -792,12 +792,16 @@
       font-weight: 800;
       color: var(--red);
       line-height: 1;
-      display: block;
+      display: inline-block;
+      vertical-align: baseline;
     }
 
     .milestone-plus {
       font-size: 36px;
       color: var(--red);
+      display: inline-block;
+      vertical-align: baseline;
+      margin-left: 2px;
     }
 
     .milestone p {
@@ -1819,9 +1823,9 @@
           <a href="#internships" class="btn-outline">Explore Programs</a>
         </div>
         <div class="hero-stats">
-          <div class="hero-stat"><strong class="counter" data-target="500">0</strong><span>Interns Placed</span></div>
-          <div class="hero-stat"><strong class="counter" data-target="8">0</strong><span>Domains</span></div>
-          <div class="hero-stat"><strong class="counter" data-target="95">0</strong><span>% Satisfaction</span></div>
+          <div class="hero-stat"><strong><span class="counter" data-target="500">0</span>+</strong><span>Interns Placed</span></div>
+          <div class="hero-stat"><strong><span class="counter" data-target="8">0</span>+</strong><span>Domains</span></div>
+          <div class="hero-stat"><strong><span class="counter" data-target="95">0</span>%</strong><span>Satisfaction</span></div>
         </div>
       </div>
       <div class="hero-visual reveal">
@@ -1960,7 +1964,7 @@
         <p>Interns Trained</p>
       </div>
       <div class="milestone reveal">
-        <span class="milestone-num counter" data-target="8">0</span>
+        <span class="milestone-num counter" data-target="8">0</span><span class="milestone-plus">+</span>
         <p>Internship Domains</p>
       </div>
       <div class="milestone reveal">
